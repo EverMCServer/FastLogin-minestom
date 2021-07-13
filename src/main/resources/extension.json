@@ -1,0 +1,19 @@
+{
+    "entrypoint": "com.evermc.fastlogin.FastLoginExtension",
+    "name": "FastLogin",
+    "version": "1.0",
+    "authors": ["djytw"],
+    "mixinConfig": "mixins.fastlogin.json",
+    "externalDependencies": {
+        "repositories": [
+            {"name": "sonatype", "url": "https://oss.sonatype.org/content/repositories/snapshots/"},
+            {"name": "central", "url": "https://repo1.maven.org/maven2/"}
+        ],
+        "artifacts": [
+            "com.zaxxer:HikariCP:4.0.3",
+            "org.yaml:snakeyaml:1.27",
+            "mysql:mysql-connector-java:8.0.23",
+            "org.xerial:sqlite-jdbc:jar:3.36.0.1"
+        ]
+    }
+}

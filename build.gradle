@@ -1,0 +1,45 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version '7.0.0'
+    id 'java-library'
+}
+
+targetCompatibility = JavaVersion.VERSION_16
+sourceCompatibility = JavaVersion.VERSION_16
+group = ProjectGroup
+version = ProjectVersion
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://jitpack.io"
+    }
+    maven {
+        url "https://repo.spongepowered.org/maven"
+    }
+    maven {
+        url "https://repo.codemc.io/repository/maven-public/"
+    }
+    maven {
+        url "https://repo.codemc.io/repository/maven-snapshot/"
+    }
+}
+
+dependencies {
+    "implementation"("com.github.Minestom:Minestom:-SNAPSHOT")
+    "implementation"("org.spongepowered:mixin:0.8.3")
+    "implementation"("org.yaml:snakeyaml:1.29")
+    "implementation"("com.github.games647:fastlogin.core:1.11-SNAPSHOT")
+    "implementation"("com.github.games647:craftapi:0.4")
+}
+
+tasks.named("assemble").configure {
+    dependsOn("shadowJar")
+}
+
+shadowJar {
+    minimize()
+    dependencies {
+        include(dependency('com.github.games647:fastlogin.core:'))
+        include(dependency('com.github.games647:craftapi:'))
+    }
+}

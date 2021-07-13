@@ -1,0 +1,27 @@
+# datasource, must be one of [sqlite, mysql]
+datasource: sqlite
+mysql:
+  hostname: 127.0.0.1
+  username: test
+  password: test
+  db_name: test
+  port: 3306
+  maximumPoolSize: 5
+sqlite:
+  filename: "{pluginDir}/fastlogin.db"
+
+# whether use vanilla UUID generator. 
+# If this is disabled, a random UUID will be generated for cracked players (Mineston default).
+use_vanilla_offline_uuid: true
+
+# Permission to set self premium/cracked state
+permissions_set_premium_self:
+  # Players that satisfies ANY of the following could use the command. (OR Logic)
+  # If you want everyone has this permission, set permission_level to 0
+  # If you want only one permission test, remove the other one
+  permission_level: 1
+  permission: "fastlogin.command.premium"
+
+permissions_set_premium_others:
+  permission_level: 4
+  permission: "fastlogin.command.premium.others"

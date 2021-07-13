@@ -1,0 +1,12 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "com.evermc.fastlogin.mixins",
+    "target": "@env(DEFAULT)",
+    "compatibilityLevel": "JAVA_11",
+    "mixins": [
+        "PremiumMixin$LoginStart",
+        "PremiumMixin$EncryptionResponse",
+        "MojangAuthAccessor"
+    ]
+}
